@@ -13,13 +13,14 @@ def lambda_handler(event, context):
 
     return {
         "statusCode": 200,
-        "body": {
-            "status": payment['status'],
-            "status_detail": payment['status_detail'],
-            "id": payment['id'],
-            "payment_method": payment['payment_method'],
-
-        }
+        "body": json.dumps(
+            {
+                "status": payment['status'],
+                "status_detail": payment['status_detail'],
+                "payment_method": payment['payment_method'],
+                "id": payment['id']
+            }
+        )
     }
 
 
@@ -40,5 +41,6 @@ def lambda_handler(event, context):
 #     }
 # }
 
-# URL LAMBDA
-# https://6lid6lbrzrilv4crc2dhthah2y0qkuxc.lambda-url.us-east-2.on.aws/default/mercadopago-api-a3
+
+# API GATEWAY
+# https://3xbhdn5867.execute-api.us-east-2.amazonaws.com/default/mercadopago-api-a3
